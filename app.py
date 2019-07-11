@@ -1,6 +1,4 @@
 # encoding: utf-8
-import jieba
-
 from linebot.models import *
 from flask import Flask, request, abort
 
