@@ -1,4 +1,8 @@
 # encoding: utf-8
+#import jieba
+import sys
+import random
+sys.path.append("./assest")
 from linebot.models import *
 from flask import Flask, request, abort
 
