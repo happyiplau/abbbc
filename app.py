@@ -1,9 +1,5 @@
 # encoding: utf-8
-import jieba
-import sys
-import random
-sys.path.append("./assest")
-import youtube
+
 from linebot.models import *
 from flask import Flask, request, abort
 
@@ -52,7 +48,7 @@ def handle_text_message(event):
             TextSendMessage(text=text))
         return 0
 
-  #  line_bot_api.reply_message(
+   #  line_bot_api.reply_message(
    #     event.reply_token,
    #     TextSendMessage(text="hi")) #reply the same message from user
     
