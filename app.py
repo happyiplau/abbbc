@@ -1,7 +1,6 @@
 # encoding: utf-8
 import jieba
-import sys
-sys.path.append("./assest")
+
 from linebot.models import *
 from flask import Flask, request, abort
 
