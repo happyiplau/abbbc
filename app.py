@@ -51,30 +51,7 @@ def handle_text_message(event):
             event.reply_token,
             TextSendMessage(text=text))
         return 0
-    
-    buttons_template = TemplateSendMessage(
-        alt_text='目錄 template',
-        template=ButtonsTemplate(
-            title='請選擇以下服務',
-            text='點選顯示介紹',
-            thumbnail_image_url='https://storage.cloud.google.com/ex_rate/tenor.gif',
-            actions=[
-                MessageTemplateAction(
-                    label='今日匯率',
-                    text='今日匯率'
-                ),
-                MessageTemplateAction(
-                    label='關於我們',
-                    text='關於我們'
-                ),
-		         MessageTemplateAction(
-                    label=mood,
-                    text=mood
-                )
-            ]
-        )
-    )
-    line_bot_api.reply_message(event.reply_token, buttons_template)
+
   #  line_bot_api.reply_message(
    #     event.reply_token,
    #     TextSendMessage(text="hi")) #reply the same message from user
