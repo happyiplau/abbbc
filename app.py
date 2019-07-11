@@ -22,9 +22,7 @@ def callback():
     signature = request.headers['X-Line-Signature']
 
     # get request body as text
-
-    #body = request.get_data(as_text=True)
-    body="hi"
+    body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
 
     # handle webhook body
@@ -41,7 +39,7 @@ def handle_text_message(event):
 
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=text)) #reply the same message from user
+        TextSendMessage(text="hi")) #reply the same message from user
     
 
 import os
