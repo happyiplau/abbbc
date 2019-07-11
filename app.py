@@ -1,8 +1,4 @@
 # encoding: utf-8
-import jieba
-import sys
-import random
-sys.path.append("./assest")
 from linebot.models import *
 from flask import Flask, request, abort
 
@@ -15,8 +11,6 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
-from googleTranslater import *
-from moodDeterminer import *
 
 app = Flask(__name__)
 
@@ -52,9 +46,6 @@ def handle_text_message(event):
       #      event.reply_token,
        #     TextSendMessage(text=text))
         #return 0
-
-
-    
 
 import os
 if __name__ == "__main__":
