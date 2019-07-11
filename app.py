@@ -52,7 +52,7 @@ def handle_text_message(event):
             TextSendMessage(text=text))
         return 0
     
-     buttons_template = TemplateSendMessage(
+    buttons_template = TemplateSendMessage(
         alt_text='目錄 template',
         template=ButtonsTemplate(
             title='請選擇以下服務',
@@ -67,14 +67,13 @@ def handle_text_message(event):
                     label='關於我們',
                     text='關於我們'
                 ),
-		MessageTemplateAction(
+		         MessageTemplateAction(
                     label=mood,
                     text=mood
                 )
             ]
         )
     )
-
     line_bot_api.reply_message(event.reply_token, buttons_template)
   #  line_bot_api.reply_message(
    #     event.reply_token,
