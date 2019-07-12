@@ -23,7 +23,8 @@ app = Flask(__name__)
 
 line_bot_api = LineBotApi('7Gx3IFDSWv/ZOXvjoirXVKaOANy6z9QcCUy5esNsdVTICYK9xWzkFuuFM518hoBj20EPWeqCBBsuqJC8XF+QZiozNKE5aC6owkri3krMYOhJfkgloYeUSmuc9RrXhTFAHmbVmjP8/1eKAJE+0FoATgdB04t89/1O/w1cDnyilFU=') #Your Channel Access Token
 handler = WebhookHandler('72307a91890d15c058d402e946bbb2f1') #Your Channel Secret
-
+user_id = event.source.user_id#id from user
+line_bot_api.push_message(user_id, TextSendMessage(text='Hello World!'))
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -44,7 +45,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     text = event.message.text #message from user
-    user_id = event.source.user_id#id from user
+
    # line_bot_api.reply_message(
     #    event.reply_token,
      #   TextSendMessage(text="hi"))  # reply the same message from user
@@ -81,7 +82,7 @@ def handle_text_message(event):
     )
 
     line_bot_api.reply_message(event.reply_token, buttons_template)
-    line_bot_api.push_message(user_id, TextSendMessage(text='Hello World!'))
+
 
 import os
 if __name__ == "__main__":
