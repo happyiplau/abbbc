@@ -44,6 +44,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     text = event.message.text #message from user
+    user_id = event.source.user_id#id from user
    # line_bot_api.reply_message(
     #    event.reply_token,
      #   TextSendMessage(text="hi"))  # reply the same message from user
@@ -80,7 +81,7 @@ def handle_text_message(event):
     )
 
     line_bot_api.reply_message(event.reply_token, buttons_template)
-    line_bot_api.push_message('happyiplau', TextSendMessage(text='Hello World!'))
+    line_bot_api.push_message(user_id, TextSendMessage(text='Hello World!'))
 
 import os
 if __name__ == "__main__":
