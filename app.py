@@ -83,7 +83,8 @@ def handle_text_message(event):
 
     line_bot_api.reply_message(event.reply_token, buttons_template)
     x = datetime.datetime.now()
-    line_bot_api.push_message(user_id, TextSendMessage(text=x))
+    line_bot_api.push_message(user_id, TextSendMessage(text=x.year))
+    line_bot_api.push_message(user_id, TextSendMessage(text="hihi"))
 
 import os
 if __name__ == "__main__":
