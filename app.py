@@ -1,5 +1,5 @@
 # encoding: utf-8
-#import jieba
+#import jieba 結巴
 import sys
 import random
 sys.path.append("./assest")
@@ -46,6 +46,12 @@ def handle_text_message(event):
      #   TextSendMessage(text="hi"))  # reply the same message from user
     if text == "今日匯率":
         text = "data"
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=text))
+        return 0
+    if text == "關於我們":
+        text = "劉泳儀"
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=text))
