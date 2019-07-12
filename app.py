@@ -5,6 +5,9 @@ import random
 sys.path.append("./assest")
 from linebot.models import *
 from flask import Flask, request, abort
+#push message
+from linebot import LineBotApi
+from linebot.exceptions import LineBotApiError
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -51,7 +54,7 @@ def handle_text_message(event):
             TextSendMessage(text=text))
         return 0
     if text == "關於我們":
-        text = "劉泳儀"
+        text = "資料來源:臺灣銀行牌告匯率"
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=text))
@@ -77,7 +80,7 @@ def handle_text_message(event):
     )
 
     line_bot_api.reply_message(event.reply_token, buttons_template)
-    line_bot_api.multicast([], TextSendMessage(text="hi"))
+    line_bot_api.push_message('happyiplau', TextSendMessage(text='Hello World!'))
 
 import os
 if __name__ == "__main__":
