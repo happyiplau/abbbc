@@ -77,7 +77,7 @@ def handle_text_message(event):
     )
 
     line_bot_api.reply_message(event.reply_token, buttons_template)
-
+    print(text)
 import os
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=os.environ['PORT'])
