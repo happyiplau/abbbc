@@ -3,13 +3,13 @@
 import sys
 import random
 sys.path.append("./assest")
+import datetime
 from linebot.models import *
 from flask import Flask, request, abort
 #push message
 from linebot import LineBotApi
 from linebot.exceptions import LineBotApiError
-#time
-from crontab import CronTab
+
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -46,9 +46,9 @@ def callback():
 def handle_text_message(event):
     text = event.message.text #message from user
     user_id = event.source.user_id #id from user
-    my_user_cron = CronTab(user=True)
-    job = my_user_cron.new( line_bot_api.push_message(user_id, TextSendMessage(text='Hello World!')))
-    job.minute.every(1)
+   # line_bot_api.reply_message(
+    #    event.reply_token,
+     #   TextSendMessage(text="hi"))  # reply the same message from user
     if text == "今日匯率":
         text = "data"
         line_bot_api.reply_message(
@@ -82,8 +82,8 @@ def handle_text_message(event):
     )
 
     line_bot_api.reply_message(event.reply_token, buttons_template)
-
-
+    x = datetime.datetime.now()
+    line_bot_api.push_message(user_id, TextSendMessage(text=x))
 
 import os
 if __name__ == "__main__":
