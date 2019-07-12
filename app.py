@@ -56,11 +56,11 @@ def handle_text_message(event):
             event.reply_token,
             TextSendMessage(text=text))
         return 0
-    elif text == "Button":
+    elif event.message.text == "Button":
         buttons_template = TemplateSendMessage(
                 alt_text='目錄 template',
                 template=ButtonsTemplate(
-                   title='請選擇以下服務',
+                    title='請選擇以下服務',
                     text='點選顯示介紹',
                     thumbnail_image_url='https://storage.cloud.google.com/ex_rate/tenor.gif',
                     actions=[
@@ -71,11 +71,7 @@ def handle_text_message(event):
                       MessageTemplateAction(
                            label='關於我們',
                           text='關於我們'
-                      ),
-                       MessageTemplateAction(
-                            label=mood,
-                          text=mood
-                       )
+                      )
                     ]
                 )
         )
