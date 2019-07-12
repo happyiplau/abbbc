@@ -47,8 +47,8 @@ def handle_text_message(event):
     text = event.message.text #message from user
     user_id = event.source.user_id #id from user
     x = datetime.datetime.now()
-    while x.year != "2019":
-        line_bot_api.push_message(user_id, TextSendMessage(text="hi"))
+   # while x.year != "2019":
+    #    line_bot_api.push_message(user_id, TextSendMessage(text="hi"))
    # line_bot_api.reply_message(
     #    event.reply_token,
      #   TextSendMessage(text="hi"))  # reply the same message from user
